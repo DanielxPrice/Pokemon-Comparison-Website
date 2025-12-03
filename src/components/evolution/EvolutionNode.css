@@ -1,0 +1,19 @@
+/* components/evolution/EvolutionNode.css */
+
+.evolutionNodeRoot {
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 0.85rem;
+}
+
+.evolutionNodeRoot:hover {
+  background: var(--bg-hover);
+}
+
+.evolutionNodeName {
+  white-space: nowrap;
+}

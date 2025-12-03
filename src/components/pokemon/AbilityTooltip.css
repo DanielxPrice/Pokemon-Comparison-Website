@@ -1,0 +1,14 @@
+/* components/pokemon/AbilityTooltip.css */
+
+.abilityRoot {
+  display: inline;
+}
+
+.abilityName {
+  text-transform: capitalize;
+}
+
+.abilityEffect {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}

@@ -1,24 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import { ThemeProvider } from "./context/ThemeContext";
+import Header from "./components/layout/Header";
+import ComparePage from "./pages/ComparePage";
+import StatsPage from "./pages/StatsPage";
 
 function App() {
+  // keep track of what pokemon is selected on each side
+  const [leftPokemonName, setLeftPokemonName] = useState(null);
+  const [rightPokemonName, setRightPokemonName] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // theme provider will handle light/dark state
+    <ThemeProvider>
+      <div className="appRoot">
+        {/* header is always visible, pages swap below it */}
+        <Header />
+        <main className="appMain">
+          <Routes>
+            {/* default to compare page */}
+            <Route
+              path="/"
+              element={
+                <Navigate
+                  to="/compare"
+                  replace
+                />
+              }
+            />
+
+            {/* main compare screen */}
+            <Route
+              path="/compare"
+              element={
+                <ComparePage
+                  leftPokemonName={leftPokemonName}
+                  rightPokemonName={rightPokemonName}
+                  setLeftPokemonName={setLeftPokemonName}
+                  setRightPokemonName={setRightPokemonName}
+                />
+              }
+            />
+
+            {/* stats screen, uses current selection */}
+            <Route
+              path="/stats"
+              element={
+                <StatsPage
+                  leftPokemonName={leftPokemonName}
+                  rightPokemonName={rightPokemonName}
+                />
+              }
+            />
+
+            {/* anything else gets put to compare */}
+            <Route
+              path="*"
+              element={<Navigate to="/compare" replace />}
+            />
+          </Routes>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,0 +1,59 @@
+/* components/layout/Header.css */
+
+.headerRoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.headerLogo {
+  font-size: 1.4rem;
+}
+
+.headerNav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+.navLink {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+.navLink:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.navLinkActive {
+  background: var(--accent);
+  color: white;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.headerLogoImg {
+  height: 32px;    
+  width: 32px;
+  object-fit: contain;
+}

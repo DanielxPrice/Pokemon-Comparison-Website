@@ -1,0 +1,29 @@
+/* styles/theme.css */
+
+/* light theme defaults */
+:root {
+  --bg-main: #f4f5fb;
+  --bg-elevated: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-hover: #eceffd;
+  --text-main: #101320;
+  --text-muted: #6b7180;
+  --border-subtle: #d5d8e5;
+  --accent: #3b82f6;
+}
+
+/* body gets these classes from ThemeProvider */
+body.theme-dark {
+  --bg-main: #050713;
+  --bg-elevated: #0f172a;
+  --bg-surface: #020617;
+  --bg-hover: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: #1f2933;
+  --accent: #3b82f6;
+}
+
+body.theme-light {
+  /* just rely on root vars for light, nothing extra needed */
+}

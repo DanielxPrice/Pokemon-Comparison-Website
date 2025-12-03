@@ -1,0 +1,56 @@
+/* pages/ComparePage.css */
+
+.comparePageRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compareSearchRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.compareSearchColumn h2 {
+  margin-bottom: 0.5rem;
+}
+
+.compareCardsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.compareCardSlot {
+  min-height: 260px;
+}
+
+.compareEmptySlot {
+  height: 100%;
+  border-radius: 12px;
+  border: 1px dashed var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.compareEvolutionRow h2 {
+  margin-bottom: 0.75rem;
+}
+
+.compareEvolutionColumns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.compareEvolutionColumn {
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+  background: var(--bg-surface);
+}

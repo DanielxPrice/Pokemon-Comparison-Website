@@ -1,0 +1,12 @@
+/* components/evolution/EvolutionChain.css */
+
+.evolutionChainRoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.evolutionArrow {
+  font-size: 1.1rem;
+}
