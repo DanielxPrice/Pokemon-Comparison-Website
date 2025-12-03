@@ -25,6 +25,7 @@ export default function useEvolutionChain(pokemonName) {
         setLoading(true);
         setError(null);
 
+        // Get species info 
         const species = await fetchPokemonSpecies(pokemonName);
         if (isCancelled) return;
 
@@ -34,10 +35,11 @@ export default function useEvolutionChain(pokemonName) {
           return;
         }
 
+        // Get evolution chain data
         const chainData = await fetchEvolutionChainByUrl(evoUrl);
         if (isCancelled) return;
 
-        
+        // Parse the evolution chain into stages
         const result = [];
         let node = chainData.chain;
         while (node) {
@@ -68,7 +70,7 @@ export default function useEvolutionChain(pokemonName) {
     return () => {
       isCancelled = true;
     };
-  }, [pokemonName]);
+  }, [pokemonName]); // re-run whenever the selected Pokémon changes
 
   return { stages, loading, error };
 }

@@ -14,7 +14,7 @@ import {
 import "./StatsChart.css";
 
 function StatsChart({ leftPokemon, rightPokemon }) {
-  // crunch the stats into chart friendly format
+  // turn the stats into chart format
   const data = useMemo(() => {
     if (!leftPokemon || !rightPokemon) return [];
 

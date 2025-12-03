@@ -4,12 +4,12 @@ import { fetchAllPokemonNames } from "../../services/pokeApiClient";
 import "./SearchBox.css";
 
 function SearchBox({ label, selectedName, onSelectPokemon }) {
-  // basic text input state
+  // initialize stuff
   const [query, setQuery] = useState("");
   const [allNames, setAllNames] = useState([]);
   const [isLoadingNames, setIsLoadingNames] = useState(false);
 
-  // fetch the name list once
+  // fetch the name list
   useEffect(() => {
     let isCancelled = false;
 
@@ -35,14 +35,14 @@ function SearchBox({ label, selectedName, onSelectPokemon }) {
     };
   }, []);
 
-  // update textbox when selection comes from outside
+  // update textbox when selectedName changes
   useEffect(() => {
     if (selectedName) {
       setQuery(selectedName);
     }
   }, [selectedName]);
 
-  // simple filtered list of suggestions
+  // filtered list of suggestions
   const suggestions = useMemo(() => {
     if (!query) return [];
     const lower = query.toLowerCase();

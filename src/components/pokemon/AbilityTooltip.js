@@ -3,6 +3,7 @@ import React from "react";
 import "./AbilityTooltip.css";
 
 function AbilityTooltip({ ability }) {
+  // ability object comes from usePokemon hook:
   const { name, shortEffect } = ability;
 
   return (

@@ -46,14 +46,16 @@ export default function usePokemon(nameOrId) {
       setError(null);
       return;
     }
-
+    // protects against state updates after component unmounts
     let isCancelled = false;
 
+    // main async loader
     async function load() {
       try {
         setLoading(true);
         setError(null);
 
+        // fetch base Pokémon data
         const pokemon = await fetchPokemon(nameOrId);
         if (isCancelled) return;
 
@@ -68,6 +70,7 @@ export default function usePokemon(nameOrId) {
           })
         );
 
+        // build the data object the rest of the UI expects
         const mappedData = {
           id: pokemon.id,
           name: pokemon.name,
@@ -98,7 +101,7 @@ export default function usePokemon(nameOrId) {
     return () => {
       isCancelled = true;
     };
-  }, [nameOrId]);
+  }, [nameOrId]); // re-run whenever the caller requests a different Pokémon
 
   return { data, loading, error };
 }

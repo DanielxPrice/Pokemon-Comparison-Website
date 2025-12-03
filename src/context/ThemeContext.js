@@ -22,7 +22,7 @@ export function ThemeProvider({ children }) {
     window.localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // tiny helper to flip theme
+  // flip theme
   function toggleTheme() {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   }
